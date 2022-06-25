@@ -1,6 +1,7 @@
 {
   "name": "api-project",
   "scripts": {
+    "format": "prettier --write .",
     "test": "jest"
   },
   "engines": {
@@ -15,6 +16,7 @@
   },
   "homepage": "https://github.com/GiovanniGiannitto/api-project#readme",
   "devDependencies": {
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "prettier": "2.7.1"
   }
 }
