@@ -2,6 +2,7 @@
     "name": "api-project",
     "scripts": {
         "format": "prettier --write .",
+        "lint": "eslint src/ --cache --fix",
         "test": "jest",
         "build": "tsc"
     },
@@ -19,6 +20,10 @@
     "devDependencies": {
         "@tsconfig/node18": "^1.0.1",
         "@types/node": "^18.0.3",
+        "@typescript-eslint/eslint-plugin": "^5.30.5",
+        "@typescript-eslint/parser": "^5.30.5",
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
         "jest": "^28.1.1",
         "prettier": "2.7.1",
         "typescript": "^4.7.4"
