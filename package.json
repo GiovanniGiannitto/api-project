@@ -1,22 +1,26 @@
 {
-  "name": "api-project",
-  "scripts": {
-    "format": "prettier --write .",
-    "test": "jest"
-  },
-  "engines": {
-    "node": ">=16"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GiovanniGiannitto/api-project.git"
-  },
-  "bugs": {
-    "url": "https://github.com/GiovanniGiannitto/api-project/issues"
-  },
-  "homepage": "https://github.com/GiovanniGiannitto/api-project#readme",
-  "devDependencies": {
-    "jest": "^28.1.1",
-    "prettier": "2.7.1"
-  }
+    "name": "api-project",
+    "scripts": {
+        "format": "prettier --write .",
+        "test": "jest",
+        "build": "tsc"
+    },
+    "engines": {
+        "node": ">=16"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GiovanniGiannitto/api-project.git"
+    },
+    "bugs": {
+        "url": "https://github.com/GiovanniGiannitto/api-project/issues"
+    },
+    "homepage": "https://github.com/GiovanniGiannitto/api-project#readme",
+    "devDependencies": {
+        "@tsconfig/node18": "^1.0.1",
+        "@types/node": "^18.0.3",
+        "jest": "^28.1.1",
+        "prettier": "2.7.1",
+        "typescript": "^4.7.4"
+    }
 }
