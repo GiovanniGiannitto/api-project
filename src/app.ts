@@ -49,6 +49,27 @@ app.post(
     }
 );
 
+app.put(
+    "/planets/:id(\\d+)",
+    validate({ body: planetSchema }),
+    async (request, response, next) => {
+        const planetData: PlanetData = request.body;
+        const planetId = Number(request.params.id);
+
+        try {
+            const planet = await prisma.planet.update({
+                where: { id: planetId },
+                data: planetData,
+            });
+
+            response.status(200).json(planet);
+        } catch (error) {
+            response.status(404);
+            next(`Cannot PUT /planets/${planetId}`);
+        }
+    }
+);
+
 app.use(validationErrorMiddleware);
 
 export default app;
