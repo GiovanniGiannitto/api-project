@@ -12,7 +12,6 @@ import {
 } from "./lib/validation";
 
 import { initMulterMiddleware } from "./lib/middleware/multer";
-import { Console } from "console";
 
 const upload = initMulterMiddleware();
 
