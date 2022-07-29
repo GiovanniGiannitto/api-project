@@ -18,7 +18,13 @@ const storage = multer.diskStorage({
     },
 });
 
-export const multerOptions = {};
+const MAX_SIZE_IN_MEGABYTES = 6 * 1024 * 1024;
+
+export const multerOptions = {
+    limits: {
+        fileSize: MAX_SIZE_IN_MEGABYTES,
+    },
+};
 
 export const initMulterMiddleware = () => {
     return multer({ storage, ...multerOptions });
