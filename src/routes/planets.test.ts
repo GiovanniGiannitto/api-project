@@ -36,7 +36,8 @@ describe("GET /planets", () => {
             .get("/planets")
             .expect(200)
             .expect("Content-Type", /application\/json/)
-            .expect("Access-Control-Allow-Origin", "http://localhost:8080");
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
 
         expect(response.body).toEqual(planets);
     });
@@ -111,7 +112,8 @@ describe("POST /planets", () => {
             })
             .expect(201)
             .expect("Content-Type", /application\/json/)
-            .expect("Access-Control-Allow-Origin", "http://localhost:8080");
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
 
         expect(response.body).toEqual(planet);
     });
@@ -161,7 +163,8 @@ describe("PUT /planets/:id", () => {
             })
             .expect(200)
             .expect("Content-Type", /application\/json/)
-            .expect("Access-Control-Allow-Origin", "http://localhost:8080");
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
 
         expect(response.body).toEqual(planet);
     });
@@ -224,7 +227,8 @@ describe("DELETE /planet/:id", () => {
         const response = await request
             .delete("/planets/1")
             .expect(204)
-            .expect("Access-Control-Allow-Origin", "http://localhost:8080");
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
 
         expect(response.text).toEqual("");
     });
@@ -256,21 +260,23 @@ describe("DELETE /planet/:id", () => {
  * It uses multer.memoryStorage, so no files are written to disk.
  */
 describe("POST /planets/:id/photo", () => {
-    // test("Valid request with PNG file upload", async () => {
-    //     await request
-    //         .post("/planets/23/photo")
-    //         .attach("photo", "fixtures/photos/file.txt")
-    //         .expect(201)
-    //         .expect("Access-Control-Allow-Origin", "http://localhost:8080");
-    // });
+    test("Valid request with PNG file upload", async () => {
+        await request
+            .post("/planets/23/photo")
+            .attach("photo", "fixtures/photos/file.txt")
+            .expect(201)
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
+    });
 
-    // test("Valid request with JPG file upload", async () => {
-    //     await request
-    //         .post("/planets/23/photo")
-    //         .attach("photo", "fixtures/photos/file.jpg")
-    //         .expect(201)
-    //         .expect("Access-Control-Allow-Origin", "http://localhost:8080");
-    // });
+    test("Valid request with JPG file upload", async () => {
+        await request
+            .post("/planets/23/photo")
+            .attach("photo", "fixtures/photos/file.jpg")
+            .expect(201)
+            .expect("Access-Control-Allow-Origin", "http://localhost:8080")
+            .expect("Access-Control-Allow-Credentials", "true");
+    });
 
     test("Invalid request with text file upload", async () => {
         const response = await request
